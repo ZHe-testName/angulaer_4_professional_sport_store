@@ -30,10 +30,18 @@ export class StoreComponent implements OnInit {
     return this.repository.getCategories();
   }
 
-  get pageNumbers(): number[] {
-    return Array(Math.ceil(this.repository.getProducts(this.selectedCategory).length / this.productsPerPage))
-      .fill(0)
-      .map((x, i) => i + 1);
+  //вместо этого неуклюжего решения
+
+  // get pageNumbers(): number[] {
+  //   return Array(Math.ceil(this.repository.getProducts(this.selectedCategory).length / this.productsPerPage))
+  //     .fill(0)
+  //     .map((x, i) => i + 1);
+  // }
+
+  //используем вот такое
+  get pageCount() {
+    return Math.ceil(
+      this.repository.getProducts(this.selectedCategory).length / this.productsPerPage);
   }
 
   changeCategory(newCategory: string | null | void) {
