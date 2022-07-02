@@ -1,6 +1,7 @@
 import { Product } from './../model/product.model';
 import { ProductRepository } from './../model/product.repository';
 import { Component, OnInit } from '@angular/core';
+import { Cart } from '../model/cart.model';
 
 @Component({
   selector: 'app-store',
@@ -13,7 +14,8 @@ export class StoreComponent implements OnInit {
   public selectedPage: number = 1
 
   constructor(
-    private repository: ProductRepository
+    private repository: ProductRepository,
+    private cart: Cart,
   ) { }
 
   ngOnInit(): void {
@@ -60,5 +62,9 @@ export class StoreComponent implements OnInit {
     this.productsPerPage = Number(target.value);
 
     this.changePage(1);
+  }
+
+  addProductToCart(product: Product) {
+    this.cart.addLine(product);
   }
 }
