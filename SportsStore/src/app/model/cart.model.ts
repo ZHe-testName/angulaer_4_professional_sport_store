@@ -26,7 +26,7 @@ export class Cart {
     let line = this.cartLines.find(line => line.product.id == product.id);
 
     if(line != undefined) {
-      line.quantity += Number(quantity);
+      line.quantity = Number(quantity);
     };
 
     this.recalculate();
