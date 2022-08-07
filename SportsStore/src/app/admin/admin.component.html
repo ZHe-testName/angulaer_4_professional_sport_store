@@ -1,5 +1,29 @@
-<div class="bg-info pa1">
-  <h3>
-    Placeholder for Admin panel
-  </h3>
+<div class="navbar navbar-inverse bg-info">
+  <a href="#" class="navbar-brand">SPORT STORE Admin</a>
+</div>
+
+<div class="row mt1">
+  <div class="col-sm-3 row">
+    <button 
+      class="btn btn-outline-info btn-block col-sm-12 mb2"
+      routerLink="/admin/main/products"
+      routerLinkActive="active"
+    >
+    Products</button>
+    <button 
+      class="btn btn-outline-info btn-blok col-sm-12 mb2"
+      routerLink="/admin/main/orders"
+      routerLinkActive="active"
+    >
+    Orders</button>
+    <button 
+      class="btn btn-outline-danger btn-block col-sm-12 mb2"
+      (click)="logout()"
+    >
+    Logout</button>
+  </div>
+
+  <div class="col-sm-9">
+    <router-outlet></router-outlet>
+  </div>
 </div>
